@@ -1,28 +1,39 @@
 import numpy as np
 import math
-# ——————————————
-# Función de asociación detecciones ↔ trackers (flehmen
-# exactamente igual que antes)
-# ——————————————
+
 def associate_detections_to_trackers(detections, trackers, dist_threshold=50):
+    """
+    detections: lista de (x, y, w, h, conf, class_id)
+    trackers:   lista de instancias de KalmanTracker
+    dist_threshold: umbral máximo de distancia para hacer match
+
+    Devuelve:
+      matches       : lista de pares (idx_tracker, idx_detection)
+      unmatched_det : indices de detecciones sin emparejar
+      unmatched_trk : indices de trackers sin emparejar
+    """
     if len(trackers) == 0:
         return [], list(range(len(detections))), []
 
+    # 1) Centros de las detecciones
     det_centers = []
     for det in detections:
         x, y, w, h, _, _ = det
-        det_centers.append((x + w / 2., y + h / 2.))
+        det_centers.append((x + w / 2.0, y + h / 2.0))
 
+    # 2) Centros predichos por cada tracker
     trk_centers = []
     for trk in trackers:
         cx, cy = trk.predict()
         trk_centers.append((cx, cy))
 
+    # 3) Matriz de distancias (trackers × detecciones)
     dist_matrix = np.zeros((len(trk_centers), len(det_centers)), dtype=np.float32)
     for t, (tcx, tcy) in enumerate(trk_centers):
         for d, (dcx, dcy) in enumerate(det_centers):
             dist_matrix[t, d] = math.hypot(tcx - dcx, tcy - dcy)
 
+    # 4) Generar todas las parejas (dist, t, d) y ordenarlas
     all_pairs = []
     for t in range(len(trk_centers)):
         for d in range(len(det_centers)):
