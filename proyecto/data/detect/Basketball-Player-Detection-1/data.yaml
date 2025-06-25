@@ -1,0 +1,15 @@
+names:
+- ball
+- player
+- referee
+- rim
+nc: 4
+roboflow:
+  license: Public Domain
+  project: basketball-player-detection-gxl0p-diwra
+  url: https://universe.roboflow.com/lab-kycck/basketball-player-detection-gxl0p-diwra/dataset/1
+  version: 1
+  workspace: lab-kycck
+test: ../test/images
+train: ../train/images
+val: ../valid/images

@@ -1,0 +1,20 @@
+names:
+- Ball
+- Hoop
+- Period
+- Player
+- Ref
+- Shot Clock
+- Team Name
+- Team Points
+- Time Remaining
+nc: 9
+roboflow:
+  license: CC BY 4.0
+  project: basketball-players-fy4c2-qiodl
+  url: https://universe.roboflow.com/lab-kycck/basketball-players-fy4c2-qiodl/dataset/1
+  version: 1
+  workspace: lab-kycck
+test: ../test/images
+train: ../train/images
+val: ../valid/images
