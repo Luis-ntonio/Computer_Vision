@@ -21,7 +21,6 @@ if __name__ == "__main__":
 
     trackers = []            # Lista de instancias KalmanTracker activas
     max_age_frames = 10      # Si un tracker no se actualiza en 10 frames, lo eliminamos
-    num_future = 5           # Proyección de 5 frames hacia adelante
     window_name = "Seguimiento + Proyección"  # Nombre único de ventana
     frame_id = 0
 
