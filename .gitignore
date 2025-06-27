@@ -4,3 +4,4 @@
 *.jpg
 *.cache
 ~/
+__pycache__

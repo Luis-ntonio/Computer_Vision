@@ -1,5 +1,0 @@
-yolo11m.pt filter=lfs diff=lfs merge=lfs -text
-yolo11n.pt filter=lfs diff=lfs merge=lfs -text
-yolo11m-pose.pt filter=lfs diff=lfs merge=lfs -text
-data/ filter=lfs diff=lfs merge=lfs -text
-runs/ filter=lfs diff=lfs merge=lfs -text
