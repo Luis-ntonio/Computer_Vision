@@ -12,4 +12,4 @@ roboflow:
   workspace: lab-kycck
 test: ../test/images
 train: ../train/images
-val: ../valid/images
+val: ../val/images
