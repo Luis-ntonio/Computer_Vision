@@ -1,7 +1,7 @@
 task: pose
 mode: train
-model: yolo11m-pose.pt
-data: ./data/basketball-court-keypoints1-1/data.yaml
+model: /home/luis/Documents/UTEC/Computer_Vision/runs/pose/train2/weights/best.pt
+data: ../preprocessing/data/pose/basketball-court-ketpoints-1/data.yaml
 epochs: 100
 time: null
 patience: 100

@@ -1,7 +1,7 @@
 task: pose
 mode: train
 model: yolo11m-pose.pt
-data: ./data/basketball-court-keypoints1-1/data.yaml
+data: ../preprocessing/data/pose/basketball-court-keypoints1-1/data.yaml
 epochs: 100
 time: null
 patience: 100

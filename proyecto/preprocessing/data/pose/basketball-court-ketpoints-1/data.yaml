@@ -33,7 +33,7 @@ kpt_shape:
 - 30
 - 3
 names:
-- court
+- Court
 nc: 1
 roboflow:
   license: CC BY 4.0

@@ -11,14 +11,17 @@ class PeopleBallTracker:
     def process_frame(self, img, frame_idx):
         res = self.model.track(source=img, task='detect', imgsz=640, persist=True, stream=True).__next__()
         annotated = res.plot()
-        boxes = res.boxes.xyxy.cpu().numpy()
-        ids = res.boxes.id.cpu().numpy()
+        #print(f"Frame {frame_idx}: boxes has attributes {dir(res.boxes)}")
+        boxes = res.boxes.xyxy.cpu().numpy() if res.boxes.xyxy is not None else None
+        ids = res.boxes.id.cpu().numpy() if res.boxes.id is not None else None
+        if boxes is None or ids is None or len(boxes) == 0 or len(ids) == 0:
+            return annotated
         centers = (boxes[:, :2] + boxes[:, 2:]) / 2
         if self.H is not None:
             centers_real = cv2.perspectiveTransform(centers.reshape(-1,1,2), self.H).reshape(-1,2)
         else:
             centers_real = centers
-        for cid, box, cen, cen_r in zip(ids, boxes, centers, centers_real):
+        for cid, cen, cen_r in zip(ids, centers, centers_real):
             self.records.append({
                 'frame': frame_idx, 'id': int(cid),
                 'x': cen[0], 'y': cen[1],

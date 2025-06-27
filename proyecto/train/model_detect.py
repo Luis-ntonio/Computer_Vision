@@ -11,7 +11,11 @@ print("Datasets disponibles:", datasets)
 model = YOLO('yolo11m.pt')
 
 # Entrena usando el dataset local
-for dataset in datasets:
+for i, dataset in enumerate(datasets):
+    if i > 1:
+        model = YOLO(f"/home/luis/Documents/UTEC/Computer_Vision/runs/detect/train{i}/weights/best.pt")
+    if i == 1:
+        model = YOLO(f"/home/luis/Documents/UTEC/Computer_Vision/runs/detect/train/weights/best.pt")
     data_yaml = f'../preprocessing/data/detect/{dataset}/data.yaml'
     if os.path.exists(data_yaml):
         print(f"Entrenando con el dataset: {dataset}")

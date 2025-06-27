@@ -27,7 +27,7 @@ kpt_shape:
 - 24
 - 3
 names:
-- p1
+- Court
 nc: 1
 roboflow:
   license: CC BY 4.0

@@ -86,4 +86,4 @@ def split_dataset(dataset_path, train_ratio=0.7, val_ratio=0.2, test_ratio=0.1):
     print(f"📁 {dataset_path}/test: {len(test_names)} archivos")
 
 # Usar la función
-split_dataset('./data/detect/basketball-ball-3/')
+split_dataset('./data/detect/Basketball-Player-Detection-1/')
