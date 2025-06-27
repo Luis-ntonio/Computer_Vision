@@ -8,4 +8,7 @@ yolo11m-pose.pt filter=lfs diff=lfs merge=lfs -text
 data/ filter=lfs diff=lfs merge=lfs -text
 output_annotated.mp4 filter=lfs diff=lfs merge=lfs -text
 trajectories.csv filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.csv filter=lfs diff=lfs merge=lfs -text
+proyecto/preprocessing/data/ filter=lfs diff=lfs merge=lfs -text
 *.avi filter=lfs diff=lfs merge=lfs -text
