@@ -1,0 +1,19 @@
+names:
+- car
+- motorcycle
+- n-lcv
+- o-bus
+- p-ambulance
+- p-truck
+- rickshaw123
+- tractor123
+nc: 8
+roboflow:
+  license: CC BY 4.0
+  project: car-motorcycle-bus-truck-ghnhh-sd8w1
+  url: https://universe.roboflow.com/lab-kycck/car-motorcycle-bus-truck-ghnhh-sd8w1/dataset/1
+  version: 1
+  workspace: lab-kycck
+test: ../test/images
+train: ../train/images
+val: ../valid/images
